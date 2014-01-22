@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: script.sh 1111 dba dba httpuser httppass
 
-virtUser="$1"
-virtPass="$2"
-virtPort="$3"
+virtPort="$1"
+virtUser="$2"
+virtPass="$3"
 
 httpUser="$4"
 httpPass="$5"
