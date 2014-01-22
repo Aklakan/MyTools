@@ -6,7 +6,7 @@
 # e.g. <cmd> myfile.n3.bzip2 http://mygraph.org 1115 dba dba
 
 
-virt_isql="/home/cstadler/Workspace/System/opt/virtuoso/vos/7.0.0-rc1/bin/isql"
+virt_isql="isql-vt"
 
 unzip_source=$1
 
