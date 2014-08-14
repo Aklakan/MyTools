@@ -2,12 +2,13 @@ console.log('\'use strict\';');
 console.log();
 console.log('var ns = {');
 
-require('file').walkSync('.', function(dir, path, fileNames) {
+require('file').walkSync('.', function(dirPath, dirNames, fileNames) {
+console.log(arguments);
   var entries = fileNames
     .filter(function(fileName) { return fileName.match('\.js$') && fileName != 'index.js'; })
     .map(function(fileName) {
       var className = fileName.substring(0, fileName.length - 3);
-      var requirePath = './' + path.join('/') + (path.length > 0 ? '/' : '') + className;
+      var requirePath = './' + (dirPath === '.' ? '' :  dirPath + '/') + className;
 
       return '    ' + className + ': require(\'' + requirePath + '\')';
     });
