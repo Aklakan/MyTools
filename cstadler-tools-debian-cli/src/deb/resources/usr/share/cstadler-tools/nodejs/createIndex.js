@@ -14,11 +14,10 @@ require('file').walkSync('.', function(dirPath, dirNames, fileNames) {
     });
 });
 
-var refs = entries.join(',\n');
+var refs = entries.join(',\n') + (entries.length > 0 ? ',' : '');
 console.log(refs);
 console.log('};');
 console.log();
 console.log('Object.freeze(ns);');
 console.log();
 console.log('module.exports = ns;');
-console.log();
