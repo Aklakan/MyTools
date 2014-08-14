@@ -7,7 +7,7 @@ require('file').walkSync('.', function(dir, path, fileNames) {
     .filter(function(fileName) { return fileName.match('\.js$') && fileName != 'index.js'; })
     .map(function(fileName) {
       var className = fileName.substring(0, fileName.length - 3);
-      var requirePath = './' + path.join('/') + className;
+      var requirePath = './' + path.join('/') + (path.length > 0 ? '/' : '') + className;
 
       return '    ' + className + ': require(\'' + requirePath + '\')';
     });
