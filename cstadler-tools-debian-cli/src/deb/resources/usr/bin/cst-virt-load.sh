@@ -5,8 +5,9 @@
 # Usage: sourceFile graphName port userName passWord
 # e.g. <cmd> myfile.n3.bzip2 http://mygraph.org 1115 dba dba
 
+source /etc/cstadler-tools/cstadler-tools.conf
 
-virt_isql="isql-vt"
+#virt_isql="isql-vt"
 
 unzip_source=$1
 
