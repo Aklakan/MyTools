@@ -9,7 +9,7 @@
 #
 
 
-limit=10
+limit=45
 
 progCmd="$1"
 #testCmd="$2"
@@ -19,9 +19,9 @@ testQuery='Select%20%2A%20%7B%20%3Chttp%3A%2F%2Fex.org%3E%20%3Chttp%3A%2F%2Fex.o
 testCmd="curl --connect-timeout 30 -m 30 -o /dev/null --silent --head --write-out %{http_code} $sparqlServiceUri?query=$testQuery"
 
 
-echo "$testCmd"
+#echo "$testCmd"
 
-exit 1 
+#exit 1 
 
 #curl http://dbpedia.org/sparql -o /dev/null --silent --head --write-out '%{http_code}'
 
