@@ -11,8 +11,9 @@ if [ -z "$version" ]; then
     exit 1
 fi
 
+fullversion="$version"
 if [ ! -z "$subversion" ]; then
-    subversion="_$subversion"
+    fullversion="${version}_${subversion}"
 fi
 
 sudo apt-get install autoconf automake libtool flex bison gperf gawk m4 make openssl libssl-dev libreadline-dev
@@ -21,14 +22,17 @@ sudo apt-get install autoconf automake libtool flex bison gperf gawk m4 make ope
 #sudo yum install autoconf automake flex bison gperf gawk m4 make readline-devel openssl-devel 
 
 #wget "http://downloads.sourceforge.net/project/virtuoso/virtuoso/$version/virtuoso-opensource-$version.tar.gz"
-url="http://downloads.sourceforge.net/project/virtuoso/virtuoso/$version/virtuoso-opensource-${version}${subversion}.tar.gz"
+dir="virtuoso-opensource-${fullversion}"
+file="${dir}.tar.gz"
+url="http://downloads.sourceforge.net/project/virtuoso/virtuoso/$version/$file"
+
 echo "Downloading $url..."
 wget "$url"
 
-tar -zxvf "virtuoso-opensource-$version.tar.gz"
-cd "virtuoso-opensource-$version"
+tar -zxvf "$file"
+cd "$dir"
 
-./configure --prefix="/opt/virtuoso/vos/$version" --with-readline=/usr/lib/libreadline.so
+./configure --prefix="/opt/virtuoso/vos/$fullversion" --with-readline=/usr/lib/libreadline.so
 make -j
 make install
 
